@@ -1,0 +1,78 @@
+🔥 How a Firewall Filters Traffic (Summary)
+
+A firewall protects a system by controlling network traffic based on predefined security rules. It examines every incoming and outgoing packet and decides whether to allow, block, or reject it.
+
+✅ Core Steps in Firewall Traffic Filtering
+1. Packet Inspection
+
+The firewall analyzes each packet’s:
+
+Source & destination IP addresses
+
+Port numbers (e.g., 22, 80, 443)
+
+Protocol type (TCP/UDP/ICMP)
+
+Packet state (NEW, ESTABLISHED, RELATED)
+
+2. Rule Matching
+
+Traffic is compared against a rule set:
+
+ALLOW → Packet is allowed through
+
+DENY/BLOCK → Packet is dropped
+
+DEFAULT POLICY → Used when no rule matches
+
+Rules are processed top to bottom.
+
+3. Direction-Based Filtering
+
+Firewalls filter traffic depending on where it’s going:
+
+Inbound traffic → Coming into the system
+
+Outbound traffic → Leaving the system
+
+Example:
+Blocking inbound Telnet (port 23) while allowing outbound web traffic.
+
+4. Port & Service Control
+
+Firewalls can allow or block traffic for specific services:
+
+Open port → Service reachable
+
+Blocked port → Service inaccessible
+
+Example:
+ufw allow 22/tcp → Allows SSH
+ufw deny 23/tcp → Blocks Telnet
+
+5. Stateful Filtering
+
+Modern firewalls track active connections:
+
+Automatically allow return traffic
+
+Block unsolicited or suspicious packets
+
+This prevents attacks like spoofing or random connection attempts.
+
+6. Logging & Monitoring
+
+Firewalls log allowed/blocked traffic to help:
+
+Detect intrusions
+
+Debug connectivity issues
+
+Audit security activity
+
+Example:
+Linux UFW log: /var/log/ufw.log
+
+🎯 Summary 
+
+A firewall is a traffic gatekeeper that checks packets against rules and only lets safe, allowed traffic pass through.
